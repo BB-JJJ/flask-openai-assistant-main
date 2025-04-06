@@ -32,11 +32,12 @@
         }
         .team-card {
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         .team-card:hover {
-            transform: scale(1.1);
+            transform: scale(1.25);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .team-card img {
             width: 80px;
@@ -74,60 +75,56 @@
 
     <div class="nba-section">
         <div class="nba-title">🏀 東區球隊</div>
-        <div class="nba-grid" id="east">
-            <!-- 東區球隊 -->
-        </div>
+        <div class="nba-grid" id="east"></div>
     </div>
 
     <div class="nba-section">
         <div class="nba-title">🌟 西區球隊</div>
-        <div class="nba-grid" id="west">
-            <!-- 西區球隊 -->
-        </div>
+        <div class="nba-grid" id="west"></div>
     </div>
 
     <script>
         const eastTeams = [
-            { name: "Atlanta Hawks", logo: "nba-atlanta-hawks-logo" },
-            { name: "Boston Celtics", logo: "nba-boston-celtics-logo" },
-            { name: "Brooklyn Nets", logo: "nba-brooklyn-nets-logo" },
-            { name: "Charlotte Hornets", logo: "nba-charlotte-hornets-logo" },
-            { name: "Chicago Bulls", logo: "nba-chicago-bulls-logo" },
-            { name: "Cleveland Cavaliers", logo: "nba-cleveland-cavaliers-logo" },
-            { name: "Detroit Pistons", logo: "nba-detroit-pistons-logo" },
-            { name: "Indiana Pacers", logo: "nba-indiana-pacers-logo" },
-            { name: "Miami Heat", logo: "nba-miami-heat-logo" },
-            { name: "Milwaukee Bucks", logo: "nba-milwaukee-bucks-logo" },
-            { name: "New York Knicks", logo: "nba-new-york-knicks-logo" },
-            { name: "Orlando Magic", logo: "nba-orlando-magic-logo" },
-            { name: "Philadelphia 76ers", logo: "nba-philadelphia-76ers-logo" },
-            { name: "Toronto Raptors", logo: "nba-toronto-raptors-logo" },
-            { name: "Washington Wizards", logo: "nba-washington-wizards-logo" },
+            { name: "Atlanta Hawks", cn: "亞特蘭大老鷹", logo: "nba-atlanta-hawks-logo", info: "位於喬治亞州亞特蘭大", url: "https://www.nba.com/hawks" },
+            { name: "Boston Celtics", cn: "波士頓塞爾提克", logo: "nba-boston-celtics-logo", info: "擁有最多冠軍的球隊之一", url: "https://www.nba.com/celtics" },
+            { name: "Brooklyn Nets", cn: "布魯克林籃網", logo: "nba-brooklyn-nets-logo", info: "位於紐約市布魯克林區", url: "https://www.nba.com/nets" },
+            { name: "Charlotte Hornets", cn: "夏洛特黃蜂", logo: "nba-charlotte-hornets-logo", info: "由喬丹擁有的球隊之一", url: "https://www.nba.com/hornets" },
+            { name: "Chicago Bulls", cn: "芝加哥公牛", logo: "nba-chicago-bulls-logo", info: "喬丹時代的王朝隊伍", url: "https://www.nba.com/bulls" },
+            { name: "Cleveland Cavaliers", cn: "克里夫蘭騎士", logo: "nba-cleveland-cavaliers-logo", info: "曾由LeBron帶領奪冠", url: "https://www.nba.com/cavaliers" },
+            { name: "Detroit Pistons", cn: "底特律活塞", logo: "nba-detroit-pistons-logo", info: "以強硬著稱的老派強隊", url: "https://www.nba.com/pistons" },
+            { name: "Indiana Pacers", cn: "印第安那溜馬", logo: "nba-indiana-pacers-logo", info: "印第安那的籃球代表", url: "https://www.nba.com/pacers" },
+            { name: "Miami Heat", cn: "邁阿密熱火", logo: "nba-miami-heat-logo", info: "曾三巨頭奪冠的球隊", url: "https://www.nba.com/heat" },
+            { name: "Milwaukee Bucks", cn: "密爾瓦基公鹿", logo: "nba-milwaukee-bucks-logo", info: "Giannis帶領奪得冠軍", url: "https://www.nba.com/bucks" },
+            { name: "New York Knicks", cn: "紐約尼克", logo: "nba-new-york-knicks-logo", info: "歷史悠久的紐約代表隊", url: "https://www.nba.com/knicks" },
+            { name: "Orlando Magic", cn: "奧蘭多魔術", logo: "nba-orlando-magic-logo", info: "曾擁有Dwight Howard", url: "https://www.nba.com/magic" },
+            { name: "Philadelphia 76ers", cn: "費城76人", logo: "nba-philadelphia-76ers-logo", info: "擁有歷史傳奇人物", url: "https://www.nba.com/sixers" },
+            { name: "Toronto Raptors", cn: "多倫多暴龍", logo: "nba-toronto-raptors-logo", info: "唯一加拿大隊伍", url: "https://www.nba.com/raptors" },
+            { name: "Washington Wizards", cn: "華盛頓巫師", logo: "nba-washington-wizards-logo", info: "華盛頓特區的代表", url: "https://www.nba.com/wizards" }
         ];
 
         const westTeams = [
-            { name: "Dallas Mavericks", logo: "nba-dallas-mavericks-logo" },
-            { name: "Denver Nuggets", logo: "nba-denver-nuggets-logo" },
-            { name: "Golden State Warriors", logo: "nba-golden-state-warriors-logo" },
-            { name: "Houston Rockets", logo: "nba-houston-rockets-logo" },
-            { name: "LA Clippers", logo: "nba-la-clippers-logo" },
-            { name: "Los Angeles Lakers", logo: "nba-los-angeles-lakers-logo" },
-            { name: "Memphis Grizzlies", logo: "nba-memphis-grizzlies-logo" },
-            { name: "Minnesota Timberwolves", logo: "nba-minnesota-timberwolves-logo" },
-            { name: "New Orleans Pelicans", logo: "nba-new-orleans-pelicans-logo" },
-            { name: "Oklahoma City Thunder", logo: "nba-oklahoma-city-thunder-logo" },
-            { name: "Phoenix Suns", logo: "nba-phoenix-suns-logo" },
-            { name: "Portland Trail Blazers", logo: "nba-portland-trail-blazers-logo" },
-            { name: "Sacramento Kings", logo: "nba-sacramento-kings-logo" },
-            { name: "San Antonio Spurs", logo: "nba-san-antonio-spurs-logo" },
-            { name: "Utah Jazz", logo: "nba-utah-jazz-logo" },
+            { name: "Dallas Mavericks", cn: "達拉斯獨行俠", logo: "nba-dallas-mavericks-logo", info: "Dirk與Luka的傳奇", url: "https://www.nba.com/mavericks" },
+            { name: "Denver Nuggets", cn: "丹佛金塊", logo: "nba-denver-nuggets-logo", info: "Jokic 帶領的強權", url: "https://www.nba.com/nuggets" },
+            { name: "Golden State Warriors", cn: "金州勇士", logo: "nba-golden-state-warriors-logo", info: "Curry 興起的王朝", url: "https://www.nba.com/warriors" },
+            { name: "Houston Rockets", cn: "休士頓火箭", logo: "nba-houston-rockets-logo", info: "姚明效力過的球隊", url: "https://www.nba.com/rockets" },
+            { name: "LA Clippers", cn: "洛杉磯快艇", logo: "nba-la-clippers-logo", info: "洛杉磯的另一支球隊", url: "https://www.nba.com/clippers" },
+            { name: "Los Angeles Lakers", cn: "洛杉磯湖人", logo: "nba-los-angeles-lakers-logo", info: "歷史最多明星球員", url: "https://www.nba.com/lakers" },
+            { name: "Memphis Grizzlies", cn: "曼菲斯灰熊", logo: "nba-memphis-grizzlies-logo", info: "新生代的潛力強隊", url: "https://www.nba.com/grizzlies" },
+            { name: "Minnesota Timberwolves", cn: "明尼蘇達灰狼", logo: "nba-minnesota-timberwolves-logo", info: "KG與Towns的故鄉", url: "https://www.nba.com/timberwolves" },
+            { name: "New Orleans Pelicans", cn: "紐奧良鵜鶘", logo: "nba-new-orleans-pelicans-logo", info: "Zion效力球隊", url: "https://www.nba.com/pelicans" },
+            { name: "Oklahoma City Thunder", cn: "奧克拉荷馬雷霆", logo: "nba-oklahoma-city-thunder-logo", info: "曾擁有三大 MVP", url: "https://www.nba.com/thunder" },
+            { name: "Phoenix Suns", cn: "鳳凰城太陽", logo: "nba-phoenix-suns-logo", info: "Booker 和 Durant 領軍", url: "https://www.nba.com/suns" },
+            { name: "Portland Trail Blazers", cn: "波特蘭拓荒者", logo: "nba-portland-trail-blazers-logo", info: "Lillard 長年效力", url: "https://www.nba.com/blazers" },
+            { name: "Sacramento Kings", cn: "沙加緬度國王", logo: "nba-sacramento-kings-logo", info: "近年崛起的新勢力", url: "https://www.nba.com/kings" },
+            { name: "San Antonio Spurs", cn: "聖安東尼奧馬刺", logo: "nba-san-antonio-spurs-logo", info: "Duncan王朝與Popovich", url: "https://www.nba.com/spurs" },
+            { name: "Utah Jazz", cn: "猶他爵士", logo: "nba-utah-jazz-logo", info: "歷史上與公牛經典對戰", url: "https://www.nba.com/jazz" }
         ];
 
         function createTeamCard(team) {
-            return `<div class="team-card" data-name="${team.name.toLowerCase()}">
+            return `<a href="${team.url}" target="_blank" title="${team.info}" class="team-card" data-name="${team.name.toLowerCase()} ${team.cn}">
                 <img src="https://loodibee.com/wp-content/uploads/${team.logo}.png" alt="${team.name}">
-                <p>${team.name}</p>
-            </div>`;
+                <p>${team.cn}</p>
+            </a>`;
         }
 
         function loadTeams() {
@@ -153,3 +150,4 @@
     </script>
 </body>
 </html>
+
