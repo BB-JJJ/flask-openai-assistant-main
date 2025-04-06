@@ -3,17 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI App with OpenAI API</title>
+    <title>AI App with NBA Logos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+        textarea {
+            width: 60%;
+            height: 100px;
+        }
+        .nba-section {
+            margin-top: 40px;
+        }
+        .nba-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .nba-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .team-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .team-card:hover {
+            transform: scale(1.1);
+        }
+        .team-card img {
+            width: 80px;
+            height: 80px;
+        }
+        .team-card p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .search-box {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .search-box input {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <form action="/generate" method="post">
-        <textarea name="prompt" placeholder="Enter your prompt"></textarea>
+        <textarea name="prompt" placeholder="Enter your prompt"></textarea><br>
         <button type="submit">Generate</button>
     </form>
     {% if response %}
-    <div>
+    <div style="text-align: center;">
         <p>{{ response }}</p>
     </div>
     {% endif %}
+
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="searchTeams()" placeholder="搜尋隊伍...">
+    </div>
+
+    <div class="nba-section">
+        <div class="nba-title">🏀 東區球隊</div>
+        <div class="nba-grid" id="east">
+            <!-- 東區球隊 -->
+        </div>
+    </div>
+
+    <div class="nba-section">
+        <div class="nba-title">🌟 西區球隊</div>
+        <div class="nba-grid" id="west">
+            <!-- 西區球隊 -->
+        </div>
+    </div>
+
+    <script>
+        const eastTeams = [
+            { name: "Atlanta Hawks", logo: "nba-atlanta-hawks-logo" },
+            { name: "Boston Celtics", logo: "nba-boston-celtics-logo" },
+            { name: "Brooklyn Nets", logo: "nba-brooklyn-nets-logo" },
+            { name: "Charlotte Hornets", logo: "nba-charlotte-hornets-logo" },
+            { name: "Chicago Bulls", logo: "nba-chicago-bulls-logo" },
+            { name: "Cleveland Cavaliers", logo: "nba-cleveland-cavaliers-logo" },
+            { name: "Detroit Pistons", logo: "nba-detroit-pistons-logo" },
+            { name: "Indiana Pacers", logo: "nba-indiana-pacers-logo" },
+            { name: "Miami Heat", logo: "nba-miami-heat-logo" },
+            { name: "Milwaukee Bucks", logo: "nba-milwaukee-bucks-logo" },
+            { name: "New York Knicks", logo: "nba-new-york-knicks-logo" },
+            { name: "Orlando Magic", logo: "nba-orlando-magic-logo" },
+            { name: "Philadelphia 76ers", logo: "nba-philadelphia-76ers-logo" },
+            { name: "Toronto Raptors", logo: "nba-toronto-raptors-logo" },
+            { name: "Washington Wizards", logo: "nba-washington-wizards-logo" },
+        ];
+
+        const westTeams = [
+            { name: "Dallas Mavericks", logo: "nba-dallas-mavericks-logo" },
+            { name: "Denver Nuggets", logo: "nba-denver-nuggets-logo" },
+            { name: "Golden State Warriors", logo: "nba-golden-state-warriors-logo" },
+            { name: "Houston Rockets", logo: "nba-houston-rockets-logo" },
+            { name: "LA Clippers", logo: "nba-la-clippers-logo" },
+            { name: "Los Angeles Lakers", logo: "nba-los-angeles-lakers-logo" },
+            { name: "Memphis Grizzlies", logo: "nba-memphis-grizzlies-logo" },
+            { name: "Minnesota Timberwolves", logo: "nba-minnesota-timberwolves-logo" },
+            { name: "New Orleans Pelicans", logo: "nba-new-orleans-pelicans-logo" },
+            { name: "Oklahoma City Thunder", logo: "nba-oklahoma-city-thunder-logo" },
+            { name: "Phoenix Suns", logo: "nba-phoenix-suns-logo" },
+            { name: "Portland Trail Blazers", logo: "nba-portland-trail-blazers-logo" },
+            { name: "Sacramento Kings", logo: "nba-sacramento-kings-logo" },
+            { name: "San Antonio Spurs", logo: "nba-san-antonio-spurs-logo" },
+            { name: "Utah Jazz", logo: "nba-utah-jazz-logo" },
+        ];
+
+        function createTeamCard(team) {
+            return `<div class="team-card" data-name="${team.name.toLowerCase()}">
+                <img src="https://loodibee.com/wp-content/uploads/${team.logo}.png" alt="${team.name}">
+                <p>${team.name}</p>
+            </div>`;
+        }
+
+        function loadTeams() {
+            const eastContainer = document.getElementById("east");
+            const westContainer = document.getElementById("west");
+            eastTeams.forEach(team => {
+                eastContainer.innerHTML += createTeamCard(team);
+            });
+            westTeams.forEach(team => {
+                westContainer.innerHTML += createTeamCard(team);
+            });
+        }
+
+        function searchTeams() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            document.querySelectorAll('.team-card').forEach(card => {
+                const name = card.getAttribute('data-name');
+                card.style.display = name.includes(input) ? "block" : "none";
+            });
+        }
+
+        loadTeams();
+    </script>
 </body>
 </html>
