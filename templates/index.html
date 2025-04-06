@@ -84,8 +84,41 @@
     </div>
 
     <script>
-        const eastTeams = [...]; // team data unchanged
-        const westTeams = [...]; // team data unchanged
+        const eastTeams = [
+            { name: "Atlanta Hawks", cn: "亞特蘭大老鷹", logo: "nba-atlanta-hawks-logo", info: "位於喬治亞州亞特蘭大" },
+            { name: "Boston Celtics", cn: "波士頓塞爾提克", logo: "nba-boston-celtics-logo", info: "擁有最多冠軍的球隊之一" },
+            { name: "Brooklyn Nets", cn: "布魯克林籃網", logo: "nba-brooklyn-nets-logo", info: "位於紐約市布魯克林區" },
+            { name: "Charlotte Hornets", cn: "夏洛特黃蜂", logo: "nba-charlotte-hornets-logo", info: "由喬丹擁有的球隊之一" },
+            { name: "Chicago Bulls", cn: "芝加哥公牛", logo: "nba-chicago-bulls-logo", info: "喬丹時代的王朝隊伍" },
+            { name: "Cleveland Cavaliers", cn: "克里夫蘭騎士", logo: "nba-cleveland-cavaliers-logo", info: "曾由LeBron帶領奪冠" },
+            { name: "Detroit Pistons", cn: "底特律活塞", logo: "nba-detroit-pistons-logo", info: "以強硬著稱的老派強隊" },
+            { name: "Indiana Pacers", cn: "印第安那溜馬", logo: "nba-indiana-pacers-logo", info: "印第安那的籃球代表" },
+            { name: "Miami Heat", cn: "邁阿密熱火", logo: "nba-miami-heat-logo", info: "曾三巨頭奪冠的球隊" },
+            { name: "Milwaukee Bucks", cn: "密爾瓦基公鹿", logo: "nba-milwaukee-bucks-logo", info: "Giannis帶領奪得冠軍" },
+            { name: "New York Knicks", cn: "紐約尼克", logo: "nba-new-york-knicks-logo", info: "歷史悠久的紐約代表隊" },
+            { name: "Orlando Magic", cn: "奧蘭多魔術", logo: "nba-orlando-magic-logo", info: "曾擁有Dwight Howard" },
+            { name: "Philadelphia 76ers", cn: "費城76人", logo: "nba-philadelphia-76ers-logo", info: "擁有歷史傳奇人物" },
+            { name: "Toronto Raptors", cn: "多倫多暴龍", logo: "nba-toronto-raptors-logo", info: "唯一加拿大隊伍" },
+            { name: "Washington Wizards", cn: "華盛頓巫師", logo: "nba-washington-wizards-logo", info: "華盛頓特區的代表" }
+        ];
+
+        const westTeams = [
+            { name: "Dallas Mavericks", cn: "達拉斯獨行俠", logo: "nba-dallas-mavericks-logo", info: "Dirk與Luka的傳奇" },
+            { name: "Denver Nuggets", cn: "丹佛金塊", logo: "nba-denver-nuggets-logo", info: "Jokic 帶領的強權" },
+            { name: "Golden State Warriors", cn: "金州勇士", logo: "nba-golden-state-warriors-logo", info: "Curry 興起的王朝" },
+            { name: "Houston Rockets", cn: "休士頓火箭", logo: "nba-houston-rockets-logo", info: "姚明效力過的球隊" },
+            { name: "LA Clippers", cn: "洛杉磯快艇", logo: "nba-la-clippers-logo", info: "洛杉磯的另一支球隊" },
+            { name: "Los Angeles Lakers", cn: "洛杉磯湖人", logo: "nba-los-angeles-lakers-logo", info: "歷史最多明星球員" },
+            { name: "Memphis Grizzlies", cn: "曼菲斯灰熊", logo: "nba-memphis-grizzlies-logo", info: "新生代的潛力強隊" },
+            { name: "Minnesota Timberwolves", cn: "明尼蘇達灰狼", logo: "nba-minnesota-timberwolves-logo", info: "KG與Towns的故鄉" },
+            { name: "New Orleans Pelicans", cn: "紐奧良鵜鶘", logo: "nba-new-orleans-pelicans-logo", info: "Zion效力球隊" },
+            { name: "Oklahoma City Thunder", cn: "奧克拉荷馬雷霆", logo: "nba-oklahoma-city-thunder-logo", info: "曾擁有三大 MVP" },
+            { name: "Phoenix Suns", cn: "鳳凰城太陽", logo: "nba-phoenix-suns-logo", info: "Booker 和 Durant 領軍" },
+            { name: "Portland Trail Blazers", cn: "波特蘭拓荒者", logo: "nba-portland-trail-blazers-logo", info: "Lillard 長年效力" },
+            { name: "Sacramento Kings", cn: "沙加緬度國王", logo: "nba-sacramento-kings-logo", info: "近年崛起的新勢力" },
+            { name: "San Antonio Spurs", cn: "聖安東尼奧馬刺", logo: "nba-san-antonio-spurs-logo", info: "Duncan王朝與Popovich" },
+            { name: "Utah Jazz", cn: "猶他爵士", logo: "nba-utah-jazz-logo", info: "歷史上與公牛經典對戰" }
+        ];
 
         function createTeamCard(team) {
             return `<div class="team-card" title="${team.info}" data-name="${team.name.toLowerCase()} ${team.cn}">
@@ -117,4 +150,3 @@
     </script>
 </body>
 </html>
-
