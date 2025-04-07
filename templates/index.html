@@ -15,6 +15,15 @@
             padding: 0;
             height: 100vh; /* 設置頁面高度為視窗高度 */
         }
+        #welcome-text {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
         form {
             text-align: center;
             margin-top: 30px;
@@ -68,6 +77,13 @@
     </style>
 </head>
 <body>
+ <div id="welcome-text">WELCOME TO MY NBA</div>
+
+<style>
+  #welcome-text {
+    font-family: 'Dancing Script', cursive;
+  }
+</style>
     <form action="/generate" method="post">
         <textarea name="prompt" placeholder="Enter your prompt"></textarea><br>
         <button type="submit">Generate</button>
@@ -160,6 +176,7 @@
     </script>
 </body>
 </html>
+
 
 
 
