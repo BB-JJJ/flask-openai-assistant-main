@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             height: 100vh; /* 設置頁面高度為視窗高度 */
+            color: white;  /* 設置全頁文字顏色 */
         }
         #welcome-text {
             position: fixed;
@@ -23,10 +24,20 @@
             font-weight: bold;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            z-index: 100;  /* 確保文字不會被其他元素擋住 */
+        }
+        #sub-text {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            font-size: 18px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            z-index: 100;  /* 確保文字不會被其他元素擋住 */
         }
         form {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 150px;
         }
         textarea {
             width: 60%;
@@ -77,13 +88,9 @@
     </style>
 </head>
 <body>
- <div id="welcome-text">WELCOME TO MY NBA</div>
+    <div id="welcome-text">WELCOME TO MY NBA</div>
+    <div id="sub-text">YOU CAN ASK ME ABOUT NBA</div>
 
-<style>
-  #welcome-text {
-    font-family: 'Dancing Script', cursive;
-  }
-</style>
     <form action="/generate" method="post">
         <textarea name="prompt" placeholder="Enter your prompt"></textarea><br>
         <button type="submit">Generate</button>
@@ -176,6 +183,7 @@
     </script>
 </body>
 </html>
+
 
 
 
