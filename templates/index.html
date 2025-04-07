@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI App with NBA </title>
+    <title>AI App with NBA</title>
     <style>
+        /* 原本的 CSS，新增 response-box 样式 */
+        .response-box {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.5);  /* 半透明背景 */
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 2px solid #ff5722;  /* 邊框顏色 */
+        }
+        /* 其他 CSS 保持不變 */
         body {
             font-family: Arial, sans-serif;
             background-image: url('https://miro.medium.com/v2/resize:fit:1007/0*YE0-0bIN-13GrZ-O.jpg');
@@ -95,11 +109,13 @@
         <textarea name="prompt" placeholder="Enter your prompt"></textarea><br>
         <button type="submit">Generate</button>
     </form>
-    {% if response %}
-    <div style="text-align: center;">
-        <p>{{ response }}</p>
+
+    <!-- 回應區域 -->
+    <div class="response-box">
+        {% if response %}
+            <p>{{ response }}</p>
+        {% endif %}
     </div>
-    {% endif %}
 
     <div class="search-box">
         <input type="text" id="searchInput" onkeyup="searchTeams()" placeholder="搜尋隊伍...">
@@ -185,7 +201,6 @@
     </script>
 </body>
 </html>
-
 
 
 
